@@ -67,7 +67,7 @@ namespace WpfAnimation
             DoubleAnimation handAnimation = new DoubleAnimation();
             handAnimation.From = Canvas.GetLeft(hand);
             handAnimation.To = Canvas.GetLeft(curPin) - 15; 
-            handAnimation.Duration = TimeSpan.FromSeconds(1);
+            handAnimation.Duration = TimeSpan.FromSeconds(0.5);
             handAnimation.RepeatBehavior = new RepeatBehavior(1f);
             handAnimation.Completed += SlideHandAnimationComplete;
             hand.BeginAnimation(Canvas.LeftProperty, handAnimation);         
@@ -111,13 +111,13 @@ namespace WpfAnimation
             DoubleAnimation handAnimation = new DoubleAnimation();
             handAnimation.From = Canvas.GetLeft(hand);
             handAnimation.To = Canvas.GetLeft(hand) + Canvas.GetLeft(destPin) - Canvas.GetLeft(curPin);
-            handAnimation.Duration = TimeSpan.FromSeconds(1);
+            handAnimation.Duration = TimeSpan.FromSeconds(0.5);
             handAnimation.RepeatBehavior = new RepeatBehavior(1f);
 
             DoubleAnimation blockAnimation = new DoubleAnimation();
             blockAnimation.From = Canvas.GetLeft(curBlock);
             blockAnimation.To = Canvas.GetLeft(curBlock) + Canvas.GetLeft(destPin) - Canvas.GetLeft(curPin);
-            blockAnimation.Duration = TimeSpan.FromSeconds(1);
+            blockAnimation.Duration = TimeSpan.FromSeconds(0.5);
             blockAnimation.AutoReverse = false;
             blockAnimation.RepeatBehavior = new RepeatBehavior(1f);
             blockAnimation.Completed += SlideAnimationComplete;
@@ -173,8 +173,10 @@ namespace WpfAnimation
             {
                 if (stacks[i].Count == 4)
                 {
+                    startBtn.Visibility = Visibility.Collapsed;
                     await hanoy(4, i, (i + 2) % stacks.Length);
                     completionSource = null;
+                    startBtn.Visibility = Visibility.Visible;
                     return;
                 }
             }

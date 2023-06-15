@@ -8,7 +8,7 @@
         Title="MainWindow">
     <Grid>
         <Canvas Width="500" Height="500" Background="LightBlue">
-            <Button Content="Lift" Click="Button_Click"/>
+            <Button x:Name="startBtn" Content="Start" Click="Button_Click" Padding="10,2" Background="SteelBlue" Foreground="White"/>
             <Rectangle Width="20" x:Name="pin1" Height="200" Fill="LightGray" Canvas.Left="70" Canvas.Bottom="0" />
             <Rectangle Width="20" x:Name="pin2" Height="200" Fill="LightGray" Canvas.Left="240" Canvas.Bottom="0" />
             <Rectangle Width="20" x:Name="pin3" Height="200" Fill="LightGray" Canvas.Left="410" Canvas.Bottom="0" />
